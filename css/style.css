@@ -1,0 +1,72 @@
+:root {
+  --fundo: #f1f5f2;
+  --texto: #14231f;
+  --musgo: #2e7d5b;
+  --floresta: #173b32;
+  --marcador: #e9b949;
+  --borda: #cfdcd4;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #101b18;
+    --texto: #e6efe9;
+    --musgo: #5fc08f;
+    --floresta: #0a120f;
+    --borda: #264037;
+  }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: "Segoe UI", system-ui, sans-serif;
+  line-height: 1.6;
+}
+main { max-width: 760px; margin: 0 auto; padding: 0 1.25rem; }
+section { padding: 3rem 0 1rem; scroll-margin-top: 4rem; }
+h1 { font-size: clamp(2rem, 6vw, 3.25rem); line-height: 1.1; margin: 0 0 1rem; }
+h2 { font-size: 1.6rem; margin: 0 0 1.5rem; }
+h3 { margin: 0 0 .25rem; }
+a:focus-visible { outline: 3px solid var(--marcador); outline-offset: 2px; }
+ 
+.topo {
+  position: sticky; top: 0; z-index: 1;
+  display: flex; flex-wrap: wrap; gap: .5rem 1.5rem;
+  justify-content: space-between; align-items: center;
+  padding: .9rem 1.25rem;
+  background: var(--floresta); color: #f1f5f2;
+}
+.topo a { color: inherit; text-decoration: none; }
+.marca { font-weight: 700; }
+.topo nav { display: flex; gap: 1.25rem; }
+.topo nav a { padding-bottom: 2px; border-bottom: 2px solid transparent; }
+.topo nav a:hover { border-color: var(--marcador); }
+ 
+.hero { padding-top: 4.5rem; }
+.hero p { font-size: 1.15rem; max-width: 52ch; }
+ 
+
+.trilha { list-style: none; margin: 0; padding: 0 0 0 1.75rem; border-left: 3px dashed var(--musgo); }
+.trilha li { position: relative; padding-bottom: 1.5rem; }
+.trilha li::before {
+  content: ""; position: absolute; left: calc(-1.75rem - 9px); top: .4rem;
+  width: 15px; height: 15px; border-radius: 50%;
+  background: var(--marcador); border: 3px solid var(--fundo);
+  box-shadow: 0 0 0 2px var(--musgo);
+}
+.trilha p { margin: 0; }
+ 
+.comandos { margin: 0; }
+.comandos div {
+  display: grid; grid-template-columns: minmax(0, 17rem) 1fr; gap: .5rem 1.5rem;
+  padding: .8rem 0; border-top: 1px solid var(--borda);
+}
+.comandos dt, .comandos dd { margin: 0; }
+code {
+  font-family: Consolas, "Courier New", monospace; font-size: .92rem;
+  background: var(--floresta); color: #f1f5f2;
+  padding: .15rem .5rem; border-radius: 4px; overflow-wrap: anywhere;
+}
+@media (max-width: 600px) { .comandos div { grid-template-columns: 1fr; gap: .25rem; } }
